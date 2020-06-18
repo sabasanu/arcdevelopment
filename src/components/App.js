@@ -5,6 +5,7 @@ import theme from "./ui/Theme";
 import { BrowserRouter } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import Footer from "./ui/Footer";
+import LandingPage from "./LandingPage";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/" component={() => <div style={{height:2000}}>Home</div>}></Route>
+          <Route exact path="/" component={LandingPage}></Route>
           <Route exact path="/services" component={() => <div>services</div>}></Route>
           <Route exact path="/customservices" component={() => <div>customservices</div>}></Route>
           <Route exact path="/mobilesites" component={() => <div>mobilesites</div>}></Route>
