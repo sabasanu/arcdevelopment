@@ -5,7 +5,7 @@ import theme from "./ui/Theme";
 import { BrowserRouter } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import Footer from "./ui/Footer";
-import LandingPage from "./LandingPage";
+import LandingPage from "./landing-page/LandingPage";
 
 function App() {
   return (
