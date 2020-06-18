@@ -136,7 +136,6 @@ function Header(props) {
   const handleClick = e => {
     setAnchorEl(e.currentTarget);
     setOpenMenu(true);
-    console.log(e);
   };
   const handleClose = e => {
     setAnchorEl(null);
@@ -242,7 +241,7 @@ function Header(props) {
 
   return (
     <>
-      <ElevationScroll>
+
         <AppBar position="fixed" color="primary" className={classes.appBar}>
           <Toolbar disableGutters>
             <Button component={Link} to="/" className={classes.logoContainer} onClick={() => setValue(0)} disableRipple>
@@ -251,7 +250,7 @@ function Header(props) {
             {matches ? drawers : tabs()}
           </Toolbar>
         </AppBar>
-      </ElevationScroll>
+
       <div className={classes.toolbarMargin}></div>
     </>
   );

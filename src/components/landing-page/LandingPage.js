@@ -1,9 +1,9 @@
 import React from 'react';
-import HeroBlock from '../HeroBlock';
-import { makeStyles } from '@material-ui/styles/index';
-import Grid from '@material-ui/core/Grid/index';
-import ServicesBlock from './ServicesBlock';
-import MobileBlock from './MobileBlock';
+import {makeStyles} from '@material-ui/styles';
+import {Grid} from '@material-ui/core';
+import HeroBlock from "../HeroBlock";
+import ServicesBlock from "./ServicesBlock";
+import MobileBlock from "./MobileBlock";
 import WebsiteBlock from "./WebsiteBlock";
 
 const useStyles = makeStyles(theme => ({
