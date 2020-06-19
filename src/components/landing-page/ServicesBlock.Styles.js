@@ -29,4 +29,10 @@ export const useServicesBlockStyles = makeStyles(theme => ({
 			padding:25
 		},
 	},
+	learnButtonBig: {
+		...theme.typography.learnButton,
+		fontSize: '0.9rem',
+		height: 45,
+		width: 145,
+	},
 }));

@@ -1,17 +1,16 @@
 import React from 'react';
-import ButtonArrow from './ui/ButtonArrow';
-import {makeStyles} from "@material-ui/styles";
-import {useTheme} from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import touchTheFuture from '../assets/touchthefuture.jpg'
+import ButtonArrow from '../ui/ButtonArrow';
+import { makeStyles } from '@material-ui/styles';
+import { useTheme } from '@material-ui/core';
+import { Grid, Button, Typography } from '@material-ui/core';
+import touchTheFuture from '../../assets/touchthefuture.jpg';
+import { useServicesBlockStyles } from './ServicesBlock.Styles';
 
 const useStyles = makeStyles(theme => ({
   animation: {
     maxWidth: '30em',
     minWidth: '25em',
-    margin:'2em',
+    margin: '2em',
     [theme.breakpoints.down('sm')]: {
       maxWidth: '20em',
     },
@@ -30,12 +29,6 @@ const useStyles = makeStyles(theme => ({
   buttonContainer: {
     marginTop: '1em',
   },
-  learnButtonHero: {
-    ...theme.typography.learnButton,
-    fontSize: '0.9rem',
-    height: 45,
-    width: 145,
-  },
   heroTextContainer: {
     minWidth: '21.5em',
     marginLeft: '1em',
@@ -46,7 +39,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function HeroBlock(props) {
-  const classes = useStyles();
+  const classes = { ...useStyles(), ...useServicesBlockStyles() };
   const theme = useTheme();
   return (
     <Grid container direction="row" justify="flex-end" alignItems="center">
@@ -63,7 +56,7 @@ function HeroBlock(props) {
             </Button>
           </Grid>
           <Grid item>
-            <Button variant="outlined" className={classes.learnButtonHero}>
+            <Button variant="outlined" className={classes.learnButtonBig}>
               Learn more<span>&nbsp;</span>
               <ButtonArrow width="15px" height="15px" fill={theme.palette.common.blue} />
             </Button>
@@ -71,8 +64,7 @@ function HeroBlock(props) {
         </Grid>
       </Grid>
       <Grid item sm className={classes.animation}>
-        <img src={touchTheFuture} alt="" style={{width:'100%'}}/>
-
+        <img src={touchTheFuture} alt="" style={{ width: '100%' }} />
       </Grid>
     </Grid>
   );
