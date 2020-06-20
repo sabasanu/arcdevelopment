@@ -2,16 +2,29 @@ import {Grid, Card, Typography, useTheme,Button} from '@material-ui/core';
 import React from 'react';
 import { useServicesBlockStyles } from './ServicesBlock.Styles';
 import ButtonArrow from "../ui/ButtonArrow";
+import {makeStyles} from "@material-ui/styles";
+const useStyles = makeStyles((theme)=>({
+	revolutionCard:{
+		position:'absolute',
+		boxShadow: theme.shadows[10],
+		borderRadius:15,
+		padding:'10em',
+		[theme.breakpoints.down('sm')]: {
+			padding: '8em 0 8em 0',
+			margin: '1em'
+		}
+	}
 
+}));
 
 function RevolutionCard(props) {
-  const classes = useServicesBlockStyles();
+  const classes = {...useServicesBlockStyles(), ...useStyles() } ;
   const theme = useTheme();
   return (
-    <Card {...props}>
+    <Card className={classes.revolutionCard}>
       <Grid container direction="column">
         <Grid item style={{textAlign:'center'}}>
-          <Typography variant="h3">The Revolution</Typography>
+          <Typography variant="h3" gutterBottom>The Revolution</Typography>
         </Grid>
         <Grid item style={{textAlign:'center'}}>
           <Typography variant="subtitle1">

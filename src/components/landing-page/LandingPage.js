@@ -7,6 +7,8 @@ import MobileBlock from './MobileBlock';
 import WebsiteBlock from './WebsiteBlock';
 import RevolutionCard from './RevolutionCard';
 import repeatingBackground from '../../assets/repeatingBackground.svg'
+import InformationBlock from "./InformationBlock";
+import CallToAction from "./CallToAction";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
@@ -26,12 +28,6 @@ const useStyles = makeStyles(theme => ({
     height:"100%",
     width:"100%",
   },
-  revolutionCard:{
-    position:'absolute',
-    boxShadow: theme.shadows[10],
-    borderRadius:15,
-    padding:'10em'
-  }
 }));
 
 function LandingPage(props) {
@@ -53,9 +49,17 @@ function LandingPage(props) {
         </Grid>
         <Grid item>
           <Grid container alignItems="center" justify="center" style={{height:'100em',marginTop:'10em'}}>
-            <RevolutionCard className={classes.revolutionCard}></RevolutionCard>
+            <RevolutionCard></RevolutionCard>
             <div className={classes.revolutionBackground}></div>
           </Grid>
+        </Grid>
+        <Grid item>
+          <InformationBlock>
+
+          </InformationBlock>
+        </Grid>
+        <Grid item>
+          <CallToAction></CallToAction>
         </Grid>
       </Grid>
     </>

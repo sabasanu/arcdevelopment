@@ -10,6 +10,8 @@ export const useServicesBlockStyles = makeStyles(theme => ({
 		fontSize: '0.7rem',
 		height: 35,
 		padding: 5,
+		textAlign:'left',
+		width:'fit-content',
 		[theme.breakpoints.down('sm')]:{
 			marginBottom:'2em'
 		}
