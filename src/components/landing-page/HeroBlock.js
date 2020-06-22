@@ -15,17 +15,7 @@ const useStyles = makeStyles(theme => ({
       maxWidth: '20em',
     },
   },
-  estimateButton: {
-    ...theme.typography.estimate,
-    backgroundColor: theme.palette.common.orange,
-    borderRadius: 50,
-    width: 145,
-    height: 45,
-    marginRight: 40,
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.light,
-    },
-  },
+
   buttonContainer: {
     marginTop: '1em',
   },

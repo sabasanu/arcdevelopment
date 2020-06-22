@@ -1,31 +1,45 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import { Button, Grid, useTheme } from '@material-ui/core';
+import { Button, Grid, useMediaQuery, useTheme } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import { useServicesBlockStyles } from './ServicesBlock.Styles';
 import ButtonArrow from '../ui/ButtonArrow';
-import background from '../../assets/background.jpg'
-import mobileBackground from '../../assets/mobileBackground.jpg'
+import background from '../../assets/background.jpg';
+import mobileBackground from '../../assets/mobileBackground.jpg';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(theme => ({
-	background:{
-		backgroundImage: `url(${background})`,
-		backgroundSize: 'cover',
-		backgroundRepeat: 'no-repeat',
-		width: '100%',
-		height: '100%',
-		[theme.breakpoints.down('md')]:{
-			backgroundImage: `url(${mobileBackground})`,
+  background: {
+    backgroundImage: `url(${background})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+		backgroundAttachment:'fixed',
+    width: '100%',
+    height: '60em',
+    [theme.breakpoints.down('md')]: {
+      backgroundImage: `url(${mobileBackground})`,
+			backgroundAttachment:'inherit',
+    },
+  },
+  estimateButtonBig: {
+    height: 80,
+    width: 205,
+    fontSize: '1.25rem',
+		[theme.breakpoints.down('sm')]: {
+    	marginLeft:0,
+			marginRight:0
 		}
-	}
+  },
 }));
 
 function CallToAction(props) {
   const classes = { ...useStyles(), ...useServicesBlockStyles() };
   const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('sm'));
+  const gridProps = { direction: matches ? 'column' : 'row', justify: matches ? 'center' : 'space-between' };
   return (
-    <Grid container style={{height:'60em'}}>
-      <Grid item>
+    <Grid container className={classes.background} alignItems="center" {...gridProps}>
+      <Grid item style={{ marginLeft:matches ? 0 : '5em', textAlign: matches ? 'center' : 'inherit' }}>
         <Grid container direction="column">
           <Grid item>
             <Typography variant="h2">
@@ -40,7 +54,11 @@ function CallToAction(props) {
           </Grid>
         </Grid>
       </Grid>
-    	<div className={classes.background}></div>
+      <Grid item>
+        <Button variant="container" className={clsx(classes.estimateButton, classes.estimateButtonBig)}>
+          Free estimate
+        </Button>
+      </Grid>
     </Grid>
   );
 }
